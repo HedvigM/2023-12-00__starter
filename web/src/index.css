@@ -135,6 +135,18 @@
   .field {
     @apply relative;
   }
+  .auth-form {
+    @apply mb-10
+  }
+  .auth-links {
+    @apply text-center text-white
+  }
+  .auth-links a {
+    @apply underline hover:no-underline
+  }
+  .error-message {
+    @apply text-orange-700 block py-2
+  }
 
   .indicator {
     @apply center h-6 w-6 rounded-full border-2 border-white;
