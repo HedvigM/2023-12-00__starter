@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { Form, Label, Submit, FieldError, EmailField } from '@redwoodjs/forms'
 import { Link, navigate, routes } from '@redwoodjs/router'
 import { MetaTags } from '@redwoodjs/web'
-import { toast, Toaster } from '@redwoodjs/web/toast'
+import { toast } from '@redwoodjs/web/toast'
 
 import { useAuth } from 'src/auth'
 import HeaderWithRulers from 'src/components/HeaderWithRulers/HeaderWithRulers'
@@ -42,61 +42,57 @@ const LoginPage = () => {
   return (
     <>
       <MetaTags title="Login" />
-
-      <Toaster toastOptions={{ className: 'rw-toast', duration: 6000 }} />
-      <>
-        <HeaderWithRulers className="auth-form text-white" heading="Login" />
-        <Form onSubmit={onSubmit}>
-          <div className="field">
-            <Label name="e-mail" errorClassName="error">
-              E-mail
-            </Label>
-            <EmailField
-              name="username"
-              placeholder=""
-              errorClassName="error"
-              ref={usernameRef}
-              validation={{
-                required: {
-                  value: true,
-                  message: 'Username is required',
-                },
-              }}
-            />
-            <FieldError name="username" className="error-message" />
-          </div>
-          <div className="field">
-            <ShowHidePassword
-              name="password"
-              label="Password"
-              placeholder=""
-              errorClassName=" rw-input-error"
-              autoComplete="current-password"
-              validation={{
-                required: {
-                  value: true,
-                  message: 'Password is required',
-                },
-              }}
-            />
-
-            <FieldError name="password" className="error-message" />
-          </div>
-
-          <div className="rw-button-group">
-            <Submit>Login</Submit>
-          </div>
-        </Form>
-        <div className="auth-links">
-          <Link className="" to={routes.signup()}>
-            Need an acount?
-          </Link>{' '}
-          |{' '}
-          <Link className="" to={routes.forgotPassword()}>
-            Forgot Password?
-          </Link>
+      <HeaderWithRulers className="auth-form text-white" heading="Login" />
+      <Form onSubmit={onSubmit}>
+        <div className="field">
+          <Label name="e-mail" errorClassName="error">
+            E-mail
+          </Label>
+          <EmailField
+            name="username"
+            placeholder=""
+            errorClassName="error"
+            ref={usernameRef}
+            validation={{
+              required: {
+                value: true,
+                message: 'Username is required',
+              },
+            }}
+          />
+          <FieldError name="username" className="error-message" />
         </div>
-      </>
+        <div className="field">
+          <ShowHidePassword
+            name="password"
+            label="Password"
+            placeholder=""
+            errorClassName=" rw-input-error"
+            autoComplete="current-password"
+            validation={{
+              required: {
+                value: true,
+                message: 'Password is required',
+              },
+            }}
+          />
+
+          <FieldError name="password" className="error-message" />
+        </div>
+
+        <div className="rw-button-group">
+          <Submit>Login</Submit>
+        </div>
+      </Form>
+      <div className="auth-links">
+        <Link className="" to={routes.signup()}>
+          Need an acount?
+        </Link>{' '}
+        |{' '}
+        <Link className="" to={routes.forgotPassword()}>
+          Forgot Password?
+        </Link>
+      </div>
     </>
   )
 }
