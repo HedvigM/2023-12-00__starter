@@ -20,7 +20,7 @@ const Avatar = ({
 }: AvatarProps) => {
   return (
     <div className="relative inline-block">
-      {avatar ? (
+      {avatar && avatar === null ? (
         <img
           src={avatar}
           alt={alt}

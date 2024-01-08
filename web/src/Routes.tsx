@@ -21,9 +21,9 @@ const Routes = () => {
           <Route path="/event/new" page={NewEventPage} name="newEvent" />
         </Set>
         <Set wrap={InteriorLayout}>
-          <Route path="/event-invite" page={EventInvitePage} name="eventInvite" />
+          <Route path="/event/{id:String}" page={EventInvitePage} name="eventInvite" />
+          <Route path="/dashboard" page={DashboardPage} name="dashboard" />
         </Set>
-        <Route path="/dashboard" page={DashboardPage} name="dashboard" />
       </PrivateSet>
       <Set wrap={AuthLayout}>
         <Route path="/login" page={LoginPage} name="login" />

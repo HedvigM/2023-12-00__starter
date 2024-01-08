@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Avatar from '../Avatar/Avatar'
 import Icon from '../Icon/Icon'
 
-const MyAccount = () => {
+const MyAccount = ({ name, lastName }) => {
   const [isDropdownShowing, setIsDropdownShowing] = useState(false)
 
   const toggleDropdown = () => {
@@ -25,7 +25,10 @@ const MyAccount = () => {
         <div className="text-left">
           <div className="text-sm">Logged in as</div>
           <div className="text-lg">
-            <strong>Amy Dutton</strong>
+            <strong>
+              {name}
+              {lastName}
+            </strong>
           </div>
         </div>
       </button>
